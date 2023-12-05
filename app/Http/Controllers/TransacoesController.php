@@ -31,7 +31,7 @@ class TransacoesController extends Controller
                 $transacao->sender_name = auth()->user()->name;
             } else {
                 $transacao->type = "in";
-                $transacao->sender_name = $this->userRepository->findById($transacao->sender_id);
+                $transacao->sender_name = $this->userRepository->findById($transacao->sender_id)->name;
             }
         }
 
