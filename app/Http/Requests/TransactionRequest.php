@@ -24,9 +24,9 @@ class TransactionRequest extends FormRequest
     public function rules()
     {
         return [
-            'chave' => 'required|string|max:11|min:11',
-            'valor' => 'required|numeric|min:0',
-            'descricao' => 'string|max:255',
+            'key' => 'required|string|max:11|min:11',
+            'value' => 'required|numeric|min:0',
+            'description' => 'string|max:255',
         ];
     }
 }

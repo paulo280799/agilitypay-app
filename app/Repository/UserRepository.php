@@ -13,5 +13,9 @@ class UserRepository{
         return  $this->user::create($dados);
     }
 
+    public function findById(int $id): object {
+        return $this->user->where('id', $id)->first();
+    }
+
 }
 ?>

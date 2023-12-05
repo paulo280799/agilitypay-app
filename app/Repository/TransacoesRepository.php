@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 use App\Models\Transacoes;
+use Illuminate\Database\Eloquent\Collection;
 
 class TransacoesRepository{
     private $transacoes;
@@ -10,9 +11,13 @@ class TransacoesRepository{
         $this->transacoes = $transacoes;
     }
 
-    public function listAll() : object{
-        return $this->transacoes->all();
+    public function listAll(string $code) : Collection {
+        return $this->transacoes
+            ->where('account_sender', $code)
+            ->orWhere('account_receiver', $code)
+            ->get();
     }
+
     public function create(array $transacao): void {
 
         $this->transacoes::create($transacao);

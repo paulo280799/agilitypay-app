@@ -20,17 +20,18 @@ class ContaController extends Controller
 
             $dados = [
                 'user' => $user->name,
-                'valor' => $conta->balance,
+                'balance' => $conta->balance,
             ];
 
-            return response()->json(['success' => true, 'dados' => $dados], 200);
+            return response()->json(['success' => true, 'data' => $dados], 200);
         } catch (\Throwable $th) {
             \Log::info($th);
             return response()->json([
-                'status' => false,
+                'success' => false,
                 'message' => $th->getMessage()
             ], 500);
         }
 
     }
+
 }

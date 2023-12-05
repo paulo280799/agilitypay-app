@@ -13,6 +13,7 @@ class Transacoes extends Model
         'description',
         'amount',
         'account_sender',
-        'account_receiver'
+        'account_receiver',
+        'sender_id'
     ];
 }

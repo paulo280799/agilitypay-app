@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('transacoes', function (Blueprint $table) {
             $table->id();
+            $table->integer('sender_id');
+
             $table->string('description');
             $table->decimal('amount', 8, 2);
 
@@ -23,6 +25,9 @@ return new class extends Migration
 
             $table->string('account_receiver', 10);
             $table->foreign('account_receiver')->references('code')->on('contas');
+            $table->foreign('sender_id')->references('id')->on('users');
+
+
             $table->timestamps();
         });
     }
